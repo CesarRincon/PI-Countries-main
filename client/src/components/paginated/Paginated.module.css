@@ -1,0 +1,32 @@
+.paginated {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.texto {
+    width: 100px;
+}
+
+.items {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 30px;
+    background-color: rgba(0, 0, 0, 0.378);
+    color: white;
+    text-align: center;
+    border: 1px solid white;
+}
+.items:hover {
+    cursor: pointer;
+    color: black;
+    background-color: white;
+    transition: 0.5s;
+}
+
+
+.pages {
+    font-weight: 600;
+    letter-spacing: 1px;
+}

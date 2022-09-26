@@ -1,0 +1,82 @@
+.container{
+    margin: 0px 2%;
+    margin-top: 2%;
+    padding: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.327);
+    height: 750px;
+}
+
+.containerImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.containerDescription{
+    display: flex;
+    margin-top: 50px;
+}
+
+.description {
+    width: 50%;
+    text-align: left;
+}
+
+.description h2, .actividadTuristica h2{
+    font-size: 40px;
+    text-align: center;
+}
+
+.description span, .actividadTuristica span {
+    font-size: 20px;
+    
+}
+
+.actividadTuristica{
+    width: 50%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.textoAct span {
+    margin: 0 10px;
+}
+
+.image {
+    margin-top: 10px;
+    width: 300px;
+    height: 200px;
+    margin: 0 10px;
+}
+
+.title {
+    margin: 0 90px;
+}
+.title span{
+    text-transform: uppercase;
+}
+
+.title h1  {
+    font-size: 50px;
+    margin-bottom: 2px;
+}
+
+.table {
+    margin: 0;
+    width: 92%;
+    font-size: 20px;
+}
+
+.table thead {
+    background-color: white;
+    color: black;
+}
+
+.table tbody {
+    margin-bottom: 10px;
+}

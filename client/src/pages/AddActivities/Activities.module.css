@@ -1,0 +1,142 @@
+.container {
+    color: white;
+}
+
+.contenedorBody {
+    display: flex
+}
+
+.containerForm {
+    width: 35%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 20px;
+    align-items: center;
+    text-align: left;
+    /* background-color: rgba(0, 0, 0, 0.327); */
+    background: rgb(25, 25, 25);
+    background: linear-gradient(142deg, rgba(25, 25, 25, 0.3211659663865546) 0%, rgba(10, 10, 10, 0.32) 19%, rgba(255, 255, 255, 0.08307072829131656) 22%, rgba(17, 17, 17, 0.32) 25%, rgba(13, 13, 13, 0.32) 47%, rgba(255, 255, 255, 0.08) 52%, rgba(14, 14, 14, 0.32) 56%, rgba(9, 9, 9, 0.32) 73%, rgba(255, 255, 255, 0.08) 77%, rgba(7, 7, 7, 0.32) 81%, rgba(0, 0, 0, 0.32) 100%);
+}
+
+.formulario {
+    width: 95%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.radiobutton {
+    display: flex;
+}
+.radiobutton span {
+    margin-right: 10px;
+}
+
+.radiobutton label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 12px;
+    height: 12px;
+    padding: 3px;
+    border-radius: 50%;
+    border: solid 2px #ccc;
+    transition: all 0.3s;
+    margin: 0 3px;
+  }
+
+.radiobutton input[type="radio"] {
+    display: none;
+  }
+  
+.radiobutton input[type="radio"]:checked + label {
+    border: 2px solid rgb(4, 149, 4);
+  }
+
+
+.items {
+    width: 90%;
+    height: 50px;
+    margin: 8px auto;
+    display: flex;
+    flex-direction: column;
+    font-size: 17px;
+    letter-spacing: .5px;
+}
+
+.twoInputs {
+    width: 90%;
+    display: flex;
+    justify-items: center;
+    margin: 0 5%;
+}
+
+.twoInputs input {
+    width: 80%;
+    height: 40%;
+}
+
+.twoInputs select {
+    width: 90%;
+    height: 50%;
+
+}
+
+.selectC {
+    height: 50%;
+}
+
+.containerCountryAdd {
+    width: 90%;
+    height: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    padding: 10px;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.146);
+}
+
+.buttonCrear {
+    margin: 30px auto;
+    width: 95%;
+    height: 30px;
+    border-radius: 8px;
+    background-color: rgb(36, 36, 36);
+    color: white;
+    border: solid 1px white;
+}
+
+.buttonCrear:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    transition: all .8s;
+}
+
+
+.activitiesContainer {
+    width: 60%;
+    height: 600px;
+    margin: 10px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.327);
+}
+
+.activitiesContainer li {
+    list-style: none;
+    margin: 10px;
+}
+
+.danger {
+    border-color: red;
+    outline: red;
+}
+
+.spanDanger {
+    color: red;
+}

@@ -1,0 +1,48 @@
+.container {
+    width: 600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.container button {
+    height: 80px;
+    width: 60px;
+    font-size: 90px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.container button:hover{
+    cursor: pointer;
+}
+
+.sliderContainer {
+    height: 130px;
+    width: 550px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: slider 60s alternate infinite;
+}
+
+.imageFlag {
+    width: 100px;
+    height: 100px;
+    margin: auto 15px;
+    border-radius: 50%;
+}
+
+@keyframes slider {
+    from {
+        margin-left: 0%;   
+    }
+    to {
+        margin-left: 1000%;
+    }
+}

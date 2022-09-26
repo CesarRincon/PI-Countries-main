@@ -1,0 +1,74 @@
+.container {
+    margin: 0;
+    display: grid;
+    color: white;
+}
+
+.bodyContainer {
+    display: flex;
+    margin: 0;
+    width: auto;
+    height: 700px
+    
+    ;
+} 
+
+.container select {
+    background-color: rgba(255, 255, 255, 0.524);
+    border-radius: 2px;
+    outline: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    height: 25px;  
+}
+
+.container select::placeholder {
+    margin: auto;
+}
+
+
+.search {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+.search span {
+    margin-right: 5px;
+}
+
+.countriesContainer{
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    color: wheat;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.selectSort {
+    display: flex;
+    position: absolute;
+    right: 10px;
+}
+
+.filters {
+    display: flex;
+    margin: 0 10px;
+}
+
+.items  {
+    margin: 0 5px;
+}
+
+.subtitles {
+    font-weight: 700;
+    margin: 0 5px;
+    letter-spacing: 0.5px;
+}
+
+
+
+
+

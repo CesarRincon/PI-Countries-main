@@ -1,0 +1,36 @@
+.container {
+    height: 50px;
+    padding: 0px 10px;
+    background-color: rgba(255, 255, 255, 0.23);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title a {
+    color: white;
+    text-decoration: none;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    margin: 0px 5px 0px 5px;
+}
+
+.items li {
+    margin: 0px 5px 0px 5px;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+.items a {
+    color: rgb(181, 181, 181);
+    text-decoration: none;
+}
+
+.items a:hover {
+    color: rgb(255, 255, 255);
+}

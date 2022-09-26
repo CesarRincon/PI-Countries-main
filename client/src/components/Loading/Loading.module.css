@@ -1,0 +1,38 @@
+.LoadindContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.image {
+    margin-bottom: 15px;
+    width: 150px;
+}
+
+.LoadindContainer p {
+    display: block;
+    font-size: 20px;
+    font-family: monospace;
+    white-space: nowrap;
+    width: 12ch;
+    animation: tipeado 2s infinite steps(12), blink .5s infinite step-end alternate;
+    overflow: hidden;   
+}
+
+
+@keyframes tipeado {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+

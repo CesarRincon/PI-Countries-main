@@ -1,0 +1,8 @@
+.select {
+    outline: none;
+    border: none;
+}
+
+.select:hover {
+    color: rgb(29, 79, 196);
+}
