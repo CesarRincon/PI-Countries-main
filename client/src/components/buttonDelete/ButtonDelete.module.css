@@ -9,6 +9,7 @@
     color: white;
     position: absolute;
     right: 3px;
+    
 }
 
 .buttonDelete:hover {
@@ -22,10 +23,10 @@
     align-items: center;
     background-color: rgba(0, 0, 0, 0.422);
     border-radius: 10px;
-    margin: 0px 5px;
     overflow: hidden;
     border: 1px solid white;
     position: relative;
+    margin: 5px;
 }
 
 .pais:hover {

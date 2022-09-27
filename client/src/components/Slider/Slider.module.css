@@ -1,6 +1,6 @@
 .container {
-    width: 600px;
-    margin: 0 auto;
+    width: 85%;
+    margin: 10px auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,10 +32,9 @@
 }
 
 .imageFlag {
-    width: 100px;
-    height: 100px;
+    width: 60%;
+    height: 65%;
     margin: auto 15px;
-    border-radius: 50%;
 }
 
 @keyframes slider {
@@ -45,4 +44,24 @@
     to {
         margin-left: 1000%;
     }
+}
+
+@media (max-width: 500px) {
+    .container{
+        width: 420px;
+        margin: 0 auto;
+    }
+    .sliderContainer {
+        height: 10vh;
+    }
+
+    .imageFlag {
+        width: 100px;
+        height: 50px;
+        margin: auto 15px;
+    }
+}
+
+@media (max-width: 1000px) {
+    
 }

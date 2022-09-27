@@ -17,26 +17,13 @@ export default function Slider() {
     }, [dispatch])
 
     useEffect(() => {
-        setFlags([...stateAllCountries]);
+        setFlags([...stateAllCountries].slice(0, 30));
         console.log(flags);
     }, [stateAllCountries])
 
     const filteredFlags = () => {
         return [...flags].slice(currentPage, currentPage + 3)
     }
-
-    const nextPage = () => {
-        if (flags.length > currentPage + 3) {
-          setcurrentPage(currentPage + 3)
-        }
-      }
-      const prevPage = () => {
-        if (currentPage === 0) {
-            setcurrentPage(currentPage - 3)
-        }
-        setcurrentPage(currentPage - 3)
-      }
-
 
     return (
         <div className={s.container}>

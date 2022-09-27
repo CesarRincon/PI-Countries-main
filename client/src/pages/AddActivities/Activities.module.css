@@ -92,11 +92,11 @@
 
 .containerCountryAdd {
     width: 90%;
-    height: 30%;
+    max-height: 30%;
     display: flex;
     flex-wrap: wrap;
     margin: auto;
-    padding: 10px;
+    padding: 30px;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.146);
 }
@@ -120,6 +120,10 @@
 
 
 .activitiesContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
     width: 60%;
     height: 600px;
     margin: 10px;
@@ -127,9 +131,24 @@
     background-color: rgba(0, 0, 0, 0.327);
 }
 
-.activitiesContainer li {
-    list-style: none;
-    margin: 10px;
+.table {
+    margin: 0;
+    width: 92%;
+    font-size: 20px;
+}
+
+.table thead {
+    background-color: white;
+    color: black;
+}
+
+.table tbody {
+    margin-bottom: 10px;
+}
+
+.table tbody tr:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.293);
 }
 
 .danger {

@@ -23,14 +23,15 @@ ul {
     margin: 0px 5px 0px 5px;
     text-decoration: none;
     list-style: none;
-    color: white;
+    font-size: 20px;
 }
 
 .items a {
-    color: rgb(181, 181, 181);
+    color: rgb(214, 214, 214);
     text-decoration: none;
 }
 
 .items a:hover {
     color: rgb(255, 255, 255);
 }
+

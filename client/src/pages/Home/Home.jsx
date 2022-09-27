@@ -9,6 +9,7 @@ import Paginated from '../../components/paginated/Paginated';
 import Search from '../../components/search/Search';
 import { continentes } from '../../controllers/utils';
 import Loading from '../../components/Loading/Loading';
+import toggleMenu from '../../image/icon-menu.png'
 
 export default function Countries() {
 
@@ -23,16 +24,16 @@ export default function Countries() {
   useEffect(() => {
     dispatch(actions.getAllCountries())
     dispatch(actions.getActivities())
- 
+
   }, [dispatch])
 
   useEffect(() => {
-    
+    setIsLoading(true)
     setCountry([...stateAllCountries])
-    
+    setIsLoading(false)
   }, [stateAllCountries])
 
-  if (!isLoading) return <Loading />
+  if (isLoading) return <Loading />
 
   const filtrarByContinent = (e) => {
     const value = e.target.value;
@@ -42,7 +43,11 @@ export default function Countries() {
       setcurrentPage(0)
       setCountry([...stateAllCountries])
     } else {
-      const filtrado = [...stateAllCountries].filter((c) => c.continente === value)
+      let filtrado = [...country].filter((c) => c.continente === value)
+      console.log(filtrado);
+      if (filtrado.length === 0) {
+        filtrado = [...stateAllCountries].filter((c) => c.continente === value)
+      }
       setPage(1)
       setcurrentPage(0)
       setCountry([...filtrado])
@@ -51,12 +56,12 @@ export default function Countries() {
 
   const filtrarByActividad = (e) => {
     const value = e.target.value;
-    console.log(value);
     if (value === 'All') {
       setPage(1);
       setcurrentPage(0)
       setCountry([...stateAllCountries])
     } else {
+      console.log(country);
       const filtrado = [...stateActivities].filter((a) => a.id === value)[0].countries
       setCountry(filtrado)
     }
@@ -107,6 +112,10 @@ export default function Countries() {
       setPage(page + 1)
       setcurrentPage(currentPage + 10)
     }
+    // if (page === 25) {
+    //   setPage(1)
+    //   setcurrentPage(0)
+    // }
   }
   const prevPage = () => {
     if (currentPage > 0) {
@@ -118,50 +127,56 @@ export default function Countries() {
   return (
     <div className={s.container}>
       <Nav />
-      <section className={s.search}>
-        <label className={s.subtitles}>Buscar: </label>
-        <Search searchCountry={searchCountry} />
+      <div className={s.search}>
+        <div className={s.onlySearch}>
+          <label className={s.subtitles}>Buscar: </label>
+          <Search searchCountry={searchCountry} />
+        </div>
         <div className={s.filters}>
-          <label className={s.subtitles}>Filtrar por: </label><br />
-          <div className={s.items}>
-            <span>Continente: </span>
-            <select name="filterByContinent" id="" onChange={(e) => filtrarByContinent(e)}>
-              <option value={'all'}>All</option>
-              {continentes?.map((e, i) => {
-                return <option key={i} value={e.id}>{e.continent}</option>
-              })}
-            </select>
-          </div>
-          <div className={s.items}>
-            <label className={s.subtitles}>Actividad Turistica: </label>
-            <select name="filtrarByActividad" id="" onChange={(e) => filtrarByActividad(e)}>
-              <option defaultValue={"all"}>All</option>
-              {stateActivities?.map((a, i) => {
-                return <option key={i} value={a.id}>{a.name}</option>
-              })}
-            </select>
-          </div>
+          <div className={s.botonFiltros}><img src={toggleMenu} alt="" /></div>
+          <div className={s.containerItems}>
+            <label className={s.subtitles}>Filtrar por: </label><br />
+            <div className={s.items}>
+              <span className={s.subtitles}>Continente: </span>
+              <select name="filterByContinent" id="" onChange={(e) => filtrarByContinent(e)}>
+                <option key={0} value={'all'}>All</option>
+                {continentes?.map((e, i) => {
+                  return <option key={i} value={e.id}>{e.continent}</option>
+                })}
+              </select>
+            </div>
 
-          <div className={s.items}>
-            <label className={s.subtitles}>Población: </label>
-            <select name="sortByPopulation" id="" onChange={(e) => sortByPopulation(e)}>
-              <option defaultValue={"all"}>All</option>
-              <option value={"mayor"}>Mayor Población</option>
-              <option value={"menor"}>Menor Población</option>
-            </select>
+            <div className={s.items}>
+              <label className={s.subtitles}>Actividad Turistica: </label>
+              <select name="filtrarByActividad" id="" onChange={(e) => filtrarByActividad(e)}>
+                <option defaultValue={"all"}>All</option>
+                {stateActivities?.map((a, i) => {
+                  return <option key={i} value={a.id}>{a.name}</option>
+                })}
+              </select>
+            </div>
+
+            <div className={s.items}>
+              <label className={s.subtitles}>Población: </label>
+              <select name="sortByPopulation" id="" onChange={(e) => sortByPopulation(e)}>
+                <option key={1} defaultValue={"all"}>All</option>
+                <option key={2} value={"mayor"}>Mayor Población</option>
+                <option key={3} value={"menor"}>Menor Población</option>
+              </select>
+            </div>
           </div>
 
         </div>
-
 
         <div className={s.selectSort}>
           <label className={s.subtitles}>Ordenar: </label>
           <Select sortElements={sortElements} className={s.sortlist} />
         </div>
-      </section>
+
+      </div>
+
       <section className={s.bodyContainer}>
         <section className={s.countriesContainer}>
-          
           {filteredCountries()?.map(p => {
             return <CardFlag key={p.id} id={p.id} name={p.name} flag={p.flag} continente={p.continente} />
           })}

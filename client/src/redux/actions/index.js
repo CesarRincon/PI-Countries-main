@@ -69,9 +69,9 @@ export const createTouristActivity = (values) => {
         .then(res => res.data)
         .then(data => {
             if (data.error) {
-                alert(data.error)
+                console.log(data.error)
             } else {
-                alert(data.success)
+                console.log(data.success)
             }
 
         })

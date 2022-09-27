@@ -80,3 +80,8 @@
 .table tbody {
     margin-bottom: 10px;
 }
+
+.table tbody tr:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.293);
+}

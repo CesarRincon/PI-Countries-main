@@ -1,19 +1,25 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as actions from "../../redux/actions/index";
 import Nav from '../../components/Nav/Nav';
 import s from '../CardDetail/CardDetail.module.css'
+import Loading from '../Loading/Loading';
 
 export default function CardDetail(props) {
 
   const dispatch = useDispatch();
 
+  const [isLoading, setIsLoading] = useState(true);
   const stateDetail = useSelector((state) => state.countryDetail)
-
+  
   useEffect(() => {
     const id = props.match.params.id;
-    return dispatch(actions.getCountrieDetail(id))
+    setIsLoading(true)
+    dispatch(actions.getCountrieDetail(id))
+    setIsLoading(false)
   }, [dispatch])
+
+  if (isLoading) return <Loading />
 
   return (
     <>
@@ -46,6 +52,7 @@ export default function CardDetail(props) {
                 </tr>
               </thead>
               <tbody>
+                
                 {stateDetail.activities?.map((a) => {
                   return (
                     <tr className={s.textoAct}>
