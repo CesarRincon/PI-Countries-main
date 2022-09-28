@@ -1,8 +1,15 @@
 export const validateForm = (data) => {
     let error = {};
+    let isNumber = parseInt(data.duration);
+    let isText = parseInt(data.name);
+
     if (!data.name) {
         error.name = true;
         error.msj = 'Este campo es requerido'
+    }
+    else if(isText) {
+        error.name = true
+        error.msj = 'El nombre no es valido'
     }
     else if (data.name.length < 3) {
         error.name = true
@@ -20,21 +27,32 @@ export const validateForm = (data) => {
         error.duration = true;
         error.msj = 'Debe ser mayor a cero';
     }
-    else if (data.duration === []) {
+    else if (data.duration == "") {
         error.duration = true;
-        error.msj = 'Este campo es requerido'
+        error.msj = 'Campo requerido'
+    }
+    else if(!isNumber) {
+        error.duration = true;
+        error.msj = 'Solo numeros';
+        data.duration = " "
     }
     return error
 }
 
 export const validateSubmit = (data) => {
+
+    let isNumber = parseInt(data.duration)
+    let isText = parseInt(data.name);
+
     if (!data.name || !data.countries.length || !data.difficulty || !data.duration || !data.season) {
         return true
-    } 
-    else if (data.name.length < 3) {
+    } else if (data.name.length < 3) {
         return true;
-    } 
-    else if (parseInt(data.duration) <= 0) {
+    } else if(isText) {
+        return true
+    } else if (parseInt(data.duration) <= 0) {
+        return true
+    } else if (!isNumber) {
         return true
     } else return false
 }
