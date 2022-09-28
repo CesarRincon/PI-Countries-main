@@ -74,7 +74,7 @@ export default function Activities() {
       return (
         <Modal error={true}>
           <h1>Error</h1>
-          <p>Los campos no deben estar vacios!</p>
+          <p>Los campos deben ser validos!</p>
         </Modal>
       )
     } else {
@@ -117,7 +117,7 @@ export default function Activities() {
           <form className={s.formulario} onSubmit={handleSubmit}>
             <div className={s.items}>
               <span>Nombre: </span>
-              <input type="text" name="name" onChange={handleChange} value={inputs.name} className={error.name ? s.danger : undefined} autoComplete='off' />
+              <input type="text" name="name" onChange={handleChange} value={inputs.name} className={error.name ? s.danger : s.inputName} autoComplete='off' />
               <span className={s.spanDanger}>{error.name ? error.msj : undefined}</span>
             </div>
             <div className={s.items}>

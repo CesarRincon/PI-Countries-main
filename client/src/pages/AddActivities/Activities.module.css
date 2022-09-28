@@ -1,4 +1,5 @@
 .container {
+    overflow: auto;
     color: white;
 }
 
@@ -7,7 +8,7 @@
 }
 
 .containerForm {
-    width: 35%;
+    width: 30vw;
     height: 600px;
     display: flex;
     flex-direction: column;
@@ -26,6 +27,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.inputName {
+    height: 19px;
 }
 
 .radiobutton {
@@ -91,8 +96,8 @@
 }
 
 .containerCountryAdd {
-    width: 90%;
-    max-height: 30%;
+    width: 75%;
+    max-height: 100px;
     display: flex;
     flex-wrap: wrap;
     margin: auto;
@@ -121,9 +126,8 @@
 
 .activitiesContainer {
     display: flex;
-    align-items: center;
     justify-content: center;
-    overflow: auto;
+    align-items: flex-start;
     width: 60%;
     height: 600px;
     margin: 10px;
@@ -152,10 +156,50 @@
 }
 
 .danger {
-    border-color: red;
+    height: 19px;
     outline: red;
 }
 
 .spanDanger {
     color: red;
+}
+
+@media (max-width: 800px) {
+    .container{
+        overflow: auto;
+        height: 700px;
+    }
+
+    .contenedorBody {
+        margin-top: 120px;
+        display: flex;
+        height: 700px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    
+    .containerCountryAdd {
+        max-height: 100px;
+    }
+
+    .containerForm{
+       width: 350px;
+       height: 500px;
+    }
+
+    .activitiesContainer {
+        width: 350px;
+        height: 700px;
+    }
+
+
+    .table {
+        margin-top: 15px;
+    }
+
+    .activitiesContainer {
+        margin-top: 110px;
+    }
 }

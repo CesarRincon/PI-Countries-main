@@ -12,10 +12,12 @@ import Loading from '../../components/Loading/Loading';
 import toggleMenu from '../../image/icon-menu.png'
 
 export default function Countries() {
+  
+  const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(true);
+  const [toggle, setToggle] = useState(true)
   const [currentPage, setcurrentPage] = useState(0);
-  const dispatch = useDispatch();
   const stateAllCountries = useSelector((state) => state.countries);
   const stateActivities = useSelector((state) => state.actTuristica);
   const [country, setCountry] = useState([]);
@@ -61,7 +63,6 @@ export default function Countries() {
       setcurrentPage(0)
       setCountry([...stateAllCountries])
     } else {
-      console.log(country);
       const filtrado = [...stateActivities].filter((a) => a.id === value)[0].countries
       setCountry(filtrado)
     }
@@ -123,6 +124,9 @@ export default function Countries() {
       setcurrentPage(currentPage - 10)
     }
   }
+  const changeDisplay = () => {
+    setToggle(!toggle)
+  }
 
   return (
     <div className={s.container}>
@@ -133,8 +137,8 @@ export default function Countries() {
           <Search searchCountry={searchCountry} />
         </div>
         <div className={s.filters}>
-          <div className={s.botonFiltros}><img src={toggleMenu} alt="" /></div>
-          <div className={s.containerItems}>
+          <div className={s.botonFiltros} onClick={changeDisplay} ><img src={toggleMenu} alt=""/></div>
+          <div className={s.containerItems} style={{display: toggle ? 'flex' : 'none'}}>
             <label className={s.subtitles}>Filtrar por: </label><br />
             <div className={s.items}>
               <span className={s.subtitles}>Continente: </span>

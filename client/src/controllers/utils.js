@@ -30,6 +30,12 @@ export const validateForm = (data) => {
 export const validateSubmit = (data) => {
     if (!data.name || !data.countries.length || !data.difficulty || !data.duration || !data.season) {
         return true
+    } 
+    else if (data.name.length < 3) {
+        return true;
+    } 
+    else if (parseInt(data.duration) <= 0) {
+        return true
     } else return false
 }
 
