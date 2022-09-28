@@ -8,7 +8,7 @@ const router = Router();
 
 router.get('/', async (req, res) => {
     try {
-        let activities = await Activities.findAll( {
+        let activities = await Activities.findAll({
             include: {
                 model: Country,
             }
@@ -25,28 +25,30 @@ router.post('/', async (req, res) => {
     const error = validatePostActivities(req.body)
     if (error) return res.status(400).send('Faltan datos obligatorios')
 
-    const {name, difficulty, duration, season, countries} = req.body;
+    const { name, difficulty, duration, season, countries } = req.body;
 
-    let existActivity = await Activities.findOne({ where: { name: req.body.name.toLowerCase() } });  
-    
+    let existActivity = await Activities.findOne({ where: { name: req.body.name.toLowerCase() } });
+
     try {
         if (!existActivity) {
-            let newActivity = await Activities.create({ 
+            let newActivity = await Activities.create({
                 name: name.toLowerCase(),
                 difficulty,
                 duration,
                 season,
                 countries
             })
-            let resultado = await newActivity.setCountries(req.body.countries)    
-            res.send({data: resultado, success: 'La actividad fue creada con exito!'})
+            let resultado = await newActivity.setCountries(req.body.countries)
+            res.send({ data: resultado, success: 'La actividad fue creada con exito!' })
 
         } else {
-            res.send({error: 'La actividad ya existe'})
+            res.send({ error: 'La actividad ya existe' })
         }
     } catch (error) {
         console.log(error);
     }
 })
+
+
 
 module.exports = router;

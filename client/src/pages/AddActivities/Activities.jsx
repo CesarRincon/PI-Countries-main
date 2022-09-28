@@ -55,13 +55,13 @@ export default function Activities() {
       setModalOn(true)
     } else {
       dispatch(actions.createTouristActivity(inputs));
-      dispatch(actions.getActivities())
       setActividades(activities)
       setModalOn(true)
     }
     setTimeout(() => {
       setModalOn(false)
       setInputs(resetInput())
+      dispatch(actions.getActivities())
     }, 1200);
   }
 
