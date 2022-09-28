@@ -1,7 +1,7 @@
 import React from 'react'
 import s from '../paginated/Paginated.module.css'
 
-export default function (p) {
+export default function Paginated(p) {
 
   return (
     <div className={s.paginated}>

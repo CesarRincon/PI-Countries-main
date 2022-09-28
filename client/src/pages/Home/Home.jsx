@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import * as actions from '../../redux/actions/index'
 import { useDispatch, useSelector } from "react-redux";
 import CardFlag from '../../components/CardsFlag/CardFlag.jsx'
@@ -12,8 +12,9 @@ import Loading from '../../components/Loading/Loading';
 import toggleMenu from '../../image/icon-menu.png'
 
 export default function Countries() {
-  
+
   const dispatch = useDispatch();
+  const ref = useRef(null)
 
   const [isLoading, setIsLoading] = useState(true);
   const [toggle, setToggle] = useState(true)
@@ -33,20 +34,31 @@ export default function Countries() {
     setIsLoading(true)
     setCountry([...stateAllCountries])
     setIsLoading(false)
+
   }, [stateAllCountries])
+
+  window.addEventListener('resize', function (e) {
+    let width = window.innerWidth
+    if (width < 500) {
+      setToggle(false)
+    } else {
+      setToggle(true)
+    }
+  })
+
+
 
   if (isLoading) return <Loading />
 
   const filtrarByContinent = (e) => {
     const value = e.target.value;
-    console.log(value);
+
     if (value === 'all') {
       setPage(1)
       setcurrentPage(0)
       setCountry([...stateAllCountries])
     } else {
       let filtrado = [...country].filter((c) => c.continente === value)
-      console.log(filtrado);
       if (filtrado.length === 0) {
         filtrado = [...stateAllCountries].filter((c) => c.continente === value)
       }
@@ -55,7 +67,6 @@ export default function Countries() {
       setCountry([...filtrado])
     }
   }
-
   const filtrarByActividad = (e) => {
     const value = e.target.value;
     if (value === 'All') {
@@ -67,7 +78,6 @@ export default function Countries() {
       setCountry(filtrado)
     }
   }
-
   const sortElements = (e) => {
     const action = e.target.value;
     switch (action) {
@@ -85,17 +95,14 @@ export default function Countries() {
         setCountry([...stateAllCountries]);
     }
   }
-
   const filteredCountries = () => {
     return [...country].slice(currentPage, currentPage + 10)
   }
-
   const searchCountry = (e) => {
     let search = e.target.value;
     setcurrentPage(0)
     setCountry([...stateAllCountries].filter((p) => p.name.toLowerCase().includes(search.toLowerCase())))
   }
-
   const sortByPopulation = (e) => {
     let value = e.target.value;
     if (value === 'mayor') {
@@ -128,17 +135,20 @@ export default function Countries() {
     setToggle(!toggle)
   }
 
+
+
   return (
-    <div className={s.container}>
+    <div className={s.container} ref={ref}>
       <Nav />
+      {/* {console.log(!ref.current? 'no existe' : ref.current.clientWidth)} */}
       <div className={s.search}>
         <div className={s.onlySearch}>
           <label className={s.subtitles}>Buscar: </label>
           <Search searchCountry={searchCountry} />
         </div>
         <div className={s.filters}>
-          <div className={s.botonFiltros} onClick={changeDisplay} ><img src={toggleMenu} alt=""/></div>
-          <div className={s.containerItems} style={{display: toggle ? 'flex' : 'none'}}>
+          <div className={s.botonFiltros} onClick={changeDisplay} ><img src={toggleMenu} alt="" /></div>
+          <div className={s.containerItems} style={{ display: toggle ? 'flex' : 'none' }}>
             <label className={s.subtitles}>Filtrar por: </label><br />
             <div className={s.items}>
               <span className={s.subtitles}>Continente: </span>

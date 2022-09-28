@@ -4,7 +4,7 @@ const { Country, Activities } = require('../db');
 const { Op } = require("sequelize");
 
 const router = Router();
-//router.get('/countries')
+//router.get('localhost:3001/countries')
 router.get('/', async (req, res) => {
     let { name } = req.query
 

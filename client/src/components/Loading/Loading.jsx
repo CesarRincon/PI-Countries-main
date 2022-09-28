@@ -3,7 +3,7 @@ import img from '../../image/planeAroundWorld.gif'
 import s from '../Loading/Loading.module.css'
 import Nav from '../Nav/Nav'
 
-export default function () {
+export default function Loading() {
     return (
         <>
             <Nav />

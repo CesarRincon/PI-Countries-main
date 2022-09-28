@@ -17,7 +17,8 @@ export default function CardDetail(props) {
     setIsLoading(true)
     dispatch(actions.getCountrieDetail(id))
     setIsLoading(false)
-  }, [dispatch])
+    return dispatch(actions.clearCountryDetail())
+  }, [dispatch, props.match.params.id])
 
   if (isLoading) return <Loading />
 
@@ -53,9 +54,9 @@ export default function CardDetail(props) {
               </thead>
               <tbody>
                 
-                {stateDetail.activities?.map((a) => {
+                {stateDetail.activities?.map((a,i) => {
                   return (
-                    <tr className={s.textoAct}>
+                    <tr className={s.textoAct} key={i}>
                       <td>{a.name}</td>
                       <td>{a.difficulty}</td>
                       <td>{a.duration}</td>

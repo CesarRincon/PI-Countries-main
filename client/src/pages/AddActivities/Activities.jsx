@@ -27,9 +27,7 @@ export default function Activities() {
     setIsLoading(true)
     setActividades(activities)
     setIsLoading(false)
-  }, [dispatch, activities])
-
-
+  }, [activities])
 
   const [inputs, setInputs] = useState({
     name: "",
@@ -62,12 +60,11 @@ export default function Activities() {
       setModalOn(true)
     }
     setTimeout(() => {
-       setModalOn(false)
-       setInputs(resetInput())
+      setModalOn(false)
+      setInputs(resetInput())
     }, 1200);
   }
 
-  
   if (ModalOn) {
     const validate = validateSubmit(inputs);
     if (validate) {
@@ -138,8 +135,7 @@ export default function Activities() {
             <div className={s.twoInputs}>
               <div className={s.items}>
                 <span>Duración: </span>
-                {console.log(error.duration, error)}
-                <input type="number" name="duration" onChange={handleChange} value={inputs.duration} className={error.duration ? s.danger : undefined} autoComplete='off' placeholder='Duracion en minutos'/> 
+                <input type="number" name="duration" onChange={handleChange} value={inputs.duration} className={error.duration ? s.danger : undefined} autoComplete='off' placeholder='Duracion en minutos' />
                 <span className={s.spanDanger}>{error.duration ? error.msj : undefined}</span>
               </div>
 
@@ -186,9 +182,9 @@ export default function Activities() {
               </tr>
             </thead>
             <tbody>
-              {actividades?.map((a) => {
+              {actividades?.map((a,i) => {
                 return (
-                  <tr className={s.textoAct}>
+                  <tr className={s.textoAct} key={i}>
                     <td>{a.name}</td>
                     <td>{a.difficulty}</td>
                     <td>{a.duration} min</td>

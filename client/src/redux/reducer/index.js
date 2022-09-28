@@ -1,5 +1,5 @@
 
-import { GET_ALL_COUNTRIES, GET_COUNTRY_DETAILS, SEARCH_COUNTRY_BY_NAME, GET_ACTIVITIES} from '../actions';
+import { GET_ALL_COUNTRIES, GET_COUNTRY_DETAILS, GET_ACTIVITIES, CLEAR_COUNTRY_DETAIL, SEARCH_COUNTRY_BY_NAME} from '../actions';
 
 
 
@@ -23,12 +23,20 @@ const rootReducer = (state = initialState, { type, payload }) => {
                 ...state,
                 countryDetail: payload,
             }
-        case SEARCH_COUNTRY_BY_NAME:
-            break
         case GET_ACTIVITIES:
             return {
                 ...state,
                 actTuristica: payload,
+            }
+        case CLEAR_COUNTRY_DETAIL:
+            return {
+                ...state,
+                countryDetail: []
+            }
+        case SEARCH_COUNTRY_BY_NAME:
+            return {
+                ...state,
+                countries: payload
             }
         default:
             return state 

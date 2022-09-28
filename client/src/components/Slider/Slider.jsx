@@ -9,7 +9,6 @@ export default function Slider() {
 
     const stateAllCountries = useSelector((state) => state.countries);
 
-    const [currentPage, setcurrentPage] = useState(0);
     const [flags, setFlags] = useState([]);
 
     useEffect(() => {
@@ -18,18 +17,13 @@ export default function Slider() {
 
     useEffect(() => {
         setFlags([...stateAllCountries].slice(0, 30));
-        console.log(flags);
     }, [stateAllCountries])
-
-    const filteredFlags = () => {
-        return [...flags].slice(currentPage, currentPage + 3)
-    }
 
     return (
         <div className={s.container}>
             <div className={s.sliderContainer}>
-                {stateAllCountries?.map((f,i) => {
-                    return <img key={i} className={s.imageFlag} src={f.flag} />
+                {flags?.map((f,i) => {
+                    return <img key={i} className={s.imageFlag} src={f.flag} alt={'Banderas'}/>
                 })}
             </div>  
         </div>

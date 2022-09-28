@@ -9,7 +9,7 @@ export default function Modal({ children, error }) {
         <div className={s.overlay}>
             <div className={s.modalContainer}>
                 <div className={s.encabezado}>
-                    <img className={error ? s.imageError : s.imageSuccess} src={error ? err : check}/>
+                    <img className={error ? s.imageError : s.imageSuccess} src={error ? err : check} alt={'Imagen de información'}/>
                 </div>
                 <div className={s.buttonCerrar}>X</div>
                 <div className={s.contenido}>
