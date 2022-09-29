@@ -134,17 +134,16 @@ export default function Countries() {
     setToggle(!toggle)
   }
 
-
-
   return (
     <div className={s.container} ref={ref}>
       <Nav />
-      {/* {console.log(!ref.current? 'no existe' : ref.current.clientWidth)} */}
       <div className={s.search}>
+
         <div className={s.onlySearch}>
           <label className={s.subtitles}>Buscar: </label>
           <Search searchCountry={searchCountry} />
         </div>
+
         <div className={s.filters}>
           <div className={s.botonFiltros} onClick={changeDisplay} ><img src={toggleMenu} alt="" /></div>
           <div className={s.containerItems} style={{ display: toggle ? 'flex' : 'none' }}>
@@ -178,14 +177,12 @@ export default function Countries() {
               </select>
             </div>
           </div>
-
         </div>
 
         <div className={s.selectSort}>
           <label className={s.subtitles}>Ordenar: </label>
           <Select sortElements={sortElements} className={s.sortlist} />
         </div>
-
       </div>
 
       <section className={s.bodyContainer}>

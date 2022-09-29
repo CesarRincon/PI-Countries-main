@@ -111,9 +111,7 @@
 
    .items select{
     background-color: wheat;
-   }
-
-   
+   } 
 }
 
 @media (max-width: 1200px) {

@@ -36,6 +36,10 @@ export const validateForm = (data) => {
         error.msj = 'Solo numeros';
         data.duration = " "
     }
+    else if(!data.name.match(/^[A-Za-z]+$/)) {
+        error.name = true
+        error.msj = 'El nombre no es valido'
+    }
     return error
 }
 
@@ -53,6 +57,8 @@ export const validateSubmit = (data) => {
     } else if (parseInt(data.duration) <= 0) {
         return true
     } else if (!isNumber) {
+        return true
+    } else if (!data.name.match(/^[A-Za-z]+$/)){
         return true
     } else return false
 }
