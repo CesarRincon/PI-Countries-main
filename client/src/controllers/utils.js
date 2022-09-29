@@ -27,7 +27,7 @@ export const validateForm = (data) => {
         error.duration = true;
         error.msj = 'Debe ser mayor a cero';
     }
-    else if (data.duration == "") {
+    else if (data.duration === "") {
         error.duration = true;
         error.msj = 'Campo requerido'
     }

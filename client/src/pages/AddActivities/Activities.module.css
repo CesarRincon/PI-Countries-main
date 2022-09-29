@@ -96,13 +96,14 @@
 }
 
 .containerCountryAdd {
-    width: 75%;
-    max-height: 100px;
+    width: 90%;
+    max-height: 180px;
+    min-height: 100px;
     display: flex;
     flex-wrap: wrap;
     margin: auto;
-    padding: 30px;
     overflow: auto;
+    padding: 10px;
     background-color: rgba(0, 0, 0, 0.146);
 }
 

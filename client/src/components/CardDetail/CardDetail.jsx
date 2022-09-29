@@ -66,8 +66,6 @@ export default function CardDetail(props) {
                 })}
               </tbody>
             </table>
-
-
           </section>
         </div>
       </div>

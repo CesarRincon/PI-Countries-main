@@ -39,14 +39,13 @@ export default function Countries() {
 
   window.addEventListener('resize', function (e) {
     let width = window.innerWidth
-    if (width < 500) {
+    console.log(width);
+    if (width < 1200) {
       setToggle(false)
     } else {
       setToggle(true)
     }
   })
-
-
 
   if (isLoading) return <Loading />
 
