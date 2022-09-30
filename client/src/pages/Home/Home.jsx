@@ -39,7 +39,6 @@ export default function Countries() {
 
   window.addEventListener('resize', function (e) {
     let width = window.innerWidth
-    console.log(width);
     if (width < 1200) {
       setToggle(false)
     } else {
@@ -135,7 +134,6 @@ export default function Countries() {
   }
   const sortCountryB = () => {
     let result = [...country].filter((e) => parseInt(e.poblacion) > 300000)
-    console.log(result);
   }
 
   return (
