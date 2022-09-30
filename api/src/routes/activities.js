@@ -48,4 +48,16 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.delete('/', async (req, res) => {
+
+    const result = await Activities.destroy({ where: { id: req.body.id } })
+        .then(() => {
+            console.log('ACTIVIDAD BORRADA');
+            res.status(200).json({ message: 'Success' });
+        })
+        .catch(err => {
+            res.status(500).json({ message: 'Deleting data failed.' });
+        })
+});
+
 module.exports = router;

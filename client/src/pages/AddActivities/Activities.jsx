@@ -7,6 +7,8 @@ import * as actions from '../../redux/actions/index.js'
 import ButtonDelete from '../../components/buttonDelete/ButtonDelete'
 import Loading from '../../components/Loading/Loading'
 import Modal from '../../components/Modal/Modal'
+import iconDelete from '../../image/iconTrash.png'
+import ModalLateral from '../../components/ModalLateral/ModalLateral'
 
 export default function Activities() {
 
@@ -17,6 +19,7 @@ export default function Activities() {
   const countries = useSelector((state) => state.countries);
   const [isLoading, setIsLoading] = useState(true);
   const [ModalOn, setModalOn] = useState(false);
+  const [ModalDelete, setModalDelete] = useState(false);
 
   useEffect(() => {
     dispatch(actions.getAllCountries())
@@ -45,7 +48,6 @@ export default function Activities() {
     setInputs({ ...inputs, [e.target.name]: e.target.value })
 
     setError(validateForm({ ...inputs, [e.target.name]: e.target.value }))
-    console.log(inputs);
   }
 
   const handleSubmit = (e) => {
@@ -53,6 +55,7 @@ export default function Activities() {
 
     if (validateSubmit(inputs)) {
       setModalOn(true)
+      resetInput();
     } else {
       dispatch(actions.createTouristActivity(inputs));
       setActividades(activities)
@@ -103,9 +106,21 @@ export default function Activities() {
     })
   }
 
+  const deleteActivity = (id) => {
+    dispatch(actions.deleteActivity(id));
+    setModalDelete(true)
+    setTimeout(() => {
+      dispatch(actions.getActivities())
+    }, 500);
+    setTimeout(() => {
+      setModalDelete(false)
+    }, 1000);
+  }
+
   return (
     <div className={s.container}>
       <nav><Nav /></nav>
+      <ModalLateral active={ModalDelete}/>
       <h1>Activities</h1>
       <div className={s.contenedorBody}>
         <div className={s.containerForm}>
@@ -178,6 +193,7 @@ export default function Activities() {
                 <th scope="col">Dificultad</th>
                 <th scope="col">Duración</th>
                 <th scope="col">Temporada</th>
+                <th scope="col" className={s.eliminar}><img src={iconDelete} alt="iconoEliminar"/></th>
               </tr>
             </thead>
             <tbody>
@@ -188,6 +204,7 @@ export default function Activities() {
                     <td>{a.difficulty}</td>
                     <td>{a.duration} min</td>
                     <td>{a.season}</td>
+                    <td className={s.eliminar} ><img src={iconDelete} alt="iconoEliminar" onClick={() => deleteActivity(a.id)}/></td>
                   </tr>
                 )
               })}

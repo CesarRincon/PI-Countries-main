@@ -43,16 +43,16 @@ export const getCountrieDetail = (idPais) => {
 export const searchCountryByName = (name) => {
     return async function (dispatch) {
         return axios.get(`/countries?name=${name}`)
-        .then(res => res.data)
-        .then(data => {
-            dispatch({
-                type: SEARCH_COUNTRY_BY_NAME,
-                payload: data,
+            .then(res => res.data)
+            .then(data => {
+                dispatch({
+                    type: SEARCH_COUNTRY_BY_NAME,
+                    payload: data,
+                })
             })
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 }
 
@@ -89,10 +89,10 @@ export const createTouristActivity = (values) => {
 
 }
 
-export const deleteTouristActivity = (id) => {
-    return {
-        type: DELETE_ACT_TURISTICA,
-        payload: id,
+export const deleteActivity = (id) => {
+    return async function (params) {
+        axios.delete('/activities', {data: {id: id }})
+            .then(() => console.log('Delete successful'));
     }
 }
 

@@ -36,6 +36,7 @@
 .radiobutton {
     display: flex;
 }
+
 .radiobutton span {
     margin-right: 10px;
 }
@@ -52,15 +53,15 @@
     border: solid 2px #ccc;
     transition: all 0.3s;
     margin: 0 3px;
-  }
+}
 
 .radiobutton input[type="radio"] {
     display: none;
-  }
-  
-.radiobutton input[type="radio"]:checked + label {
+}
+
+.radiobutton input[type="radio"]:checked+label {
     border: 2px solid rgb(4, 149, 4);
-  }
+}
 
 
 .items {
@@ -149,12 +150,15 @@
 
 .table tbody {
     margin-bottom: 10px;
+
 }
 
 .table tbody tr:hover {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.293);
 }
+
+
 
 .danger {
     height: 19px;
@@ -165,8 +169,19 @@
     color: red;
 }
 
+.eliminar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.eliminar img {
+    width: 20px;
+}
+
 @media (max-width: 800px) {
-    .container{
+    .container {
         overflow: auto;
         height: 700px;
     }
@@ -178,16 +193,16 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        
+
     }
-    
+
     .containerCountryAdd {
         max-height: 100px;
     }
 
-    .containerForm{
-       width: 350px;
-       height: 500px;
+    .containerForm {
+        width: 350px;
+        height: 500px;
     }
 
     .activitiesContainer {
