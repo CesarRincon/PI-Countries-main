@@ -3,8 +3,8 @@ const { Country, Activities } = require('../db');
 
 module.exports = {
     loadDb: async () => {
-        let table = await Country.findAll();
         try {
+            let table = await Country.findAll();
             if (!table.length) {
                 const api = await axios.get('https://restcountries.com/v3/all')
                 const apiInfo = api.data.map((p) => {
