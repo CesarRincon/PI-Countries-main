@@ -85,7 +85,6 @@ export const createTouristActivity = (values) => {
                 }
 
             })
-        // return datos
     }
 
 }

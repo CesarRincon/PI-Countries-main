@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
                 model: Country,
             }
         });
-        res.status(200).send(activities)
+        res.status(200).json(activities)
     }
     catch (error) {
         console.log(error)
@@ -27,9 +27,8 @@ router.post('/', async (req, res) => {
 
     const { name, difficulty, duration, season, countries } = req.body;
 
-    let existActivity = await Activities.findOne({ where: { name: req.body.name.toLowerCase() } });
-
     try {
+        let existActivity = await Activities.findOne({ where: { name: req.body.name.toLowerCase() } });
         if (!existActivity) {
             let newActivity = await Activities.create({
                 name: name.toLowerCase(),
@@ -47,6 +46,6 @@ router.post('/', async (req, res) => {
     } catch (error) {
         console.log(error);
     }
-})
+});
 
 module.exports = router;

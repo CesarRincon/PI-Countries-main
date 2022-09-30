@@ -2,8 +2,6 @@
 import { GET_ALL_COUNTRIES, GET_COUNTRY_DETAILS, GET_ACTIVITIES, CLEAR_COUNTRY_DETAIL, SEARCH_COUNTRY_BY_NAME} from '../actions';
 
 
-
-
 const initialState = {
     countries: [],
     countryDetail: [],

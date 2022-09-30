@@ -60,7 +60,6 @@ export default function Activities() {
     }
     setTimeout(() => {
       setModalOn(false)
-      setInputs(resetInput())
       dispatch(actions.getActivities())
     }, 1200);
   }

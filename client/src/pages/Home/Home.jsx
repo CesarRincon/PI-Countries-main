@@ -133,6 +133,10 @@ export default function Countries() {
   const changeDisplay = () => {
     setToggle(!toggle)
   }
+  const sortCountryB = () => {
+    let result = [...country].filter((e) => parseInt(e.poblacion) > 300000)
+    console.log(result);
+  }
 
   return (
     <div className={s.container} ref={ref}>
@@ -176,6 +180,9 @@ export default function Countries() {
                 <option key={3} value={"menor"}>Menor Población</option>
               </select>
             </div>
+          </div>
+          <div className={s.items}>
+                <button onClick={sortCountryB}>Click Me!</button>
           </div>
         </div>
 
