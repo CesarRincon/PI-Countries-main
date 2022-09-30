@@ -10,7 +10,7 @@ export const CLEAR_COUNTRY_DETAIL = 'CLEAR_COUNTRY_DETAIL';
 
 export const getAllCountries = () => {
     return async function (dispatch) {
-        return axios.get('http://localhost:3001/countries')
+        return axios.get('/countries')
             .then(res => res.data)
             .then(data => {
                 dispatch({
@@ -26,7 +26,7 @@ export const getAllCountries = () => {
 
 export const getCountrieDetail = (idPais) => {
     return async function (dispatch) {
-        return axios.get(`http://localhost:3001/countries/${idPais}`)
+        return axios.get(`/countries/${idPais}`)
             .then(res => res.data)
             .then(data => {
                 dispatch({
@@ -42,7 +42,7 @@ export const getCountrieDetail = (idPais) => {
 
 export const searchCountryByName = (name) => {
     return async function (dispatch) {
-        return axios.get(`http://localhost:3001/countries?name=${name}`)
+        return axios.get(`/countries?name=${name}`)
         .then(res => res.data)
         .then(data => {
             dispatch({
@@ -58,7 +58,7 @@ export const searchCountryByName = (name) => {
 
 export const getActivities = () => {
     return async function (dispatch) {
-        return axios.get('http://localhost:3001/activities')
+        return axios.get('/activities')
             .then(res => res.data)
             .then(data => {
                 dispatch({
@@ -75,7 +75,7 @@ export const getActivities = () => {
 
 export const createTouristActivity = (values) => {
     return async function (dispatch) {
-        axios.post('http://localhost:3001/activities', values)
+        axios.post('/activities', values)
             .then(res => res.data)
             .then(data => {
                 if (data.error) {
