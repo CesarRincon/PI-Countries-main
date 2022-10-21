@@ -44,6 +44,8 @@ export default function Activities() {
 
   if (isLoading) return <Loading />
 
+  
+
   const handleChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value })
 

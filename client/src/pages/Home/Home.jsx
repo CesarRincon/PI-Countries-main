@@ -186,9 +186,13 @@ export default function Countries() {
 
       <section className={s.bodyContainer}>
         <section className={s.countriesContainer}>
-          {filteredCountries()?.map(p => {
-            return <CardFlag key={p.id} id={p.id} name={p.name} flag={p.flag} continente={p.continente} />
-          })}
+          {filteredCountries().length ?
+            filteredCountries()?.map(p => {
+              return <CardFlag key={p.id} id={p.id} name={p.name} flag={p.flag} continente={p.continente} />
+            })
+            :
+            <Loading />
+          }
         </section>
       </section>
       <section>

@@ -13,9 +13,6 @@ function App() {
       <Route exact path="/countries/:id" component={CardDetail} />
       <Route exact path="/activities" component={Activities} />
     </div>
-
-
-
   );
 }
 

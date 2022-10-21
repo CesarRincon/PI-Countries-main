@@ -40,8 +40,6 @@ router.get('/:id', async (req, res) => {
     } catch (error) {
         res.status(500).send(error)
     }
-
-    console.log(country.dataValues)
     res.send(country.dataValues)
 })
 
