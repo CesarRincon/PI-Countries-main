@@ -6,7 +6,6 @@ import Nav from '../Nav/Nav'
 export default function Loading() {
     return (
         <>
-            <Nav />
             <div className={s.LoadindContainer}>
                 <img className={s.image} src={img} alt="" />
                 <p>CARGANDO...</p>
