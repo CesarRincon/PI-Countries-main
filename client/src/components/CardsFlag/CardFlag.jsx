@@ -7,6 +7,7 @@ export default function CardFlag(p) {
         <div className={s.container}>
             <img className={s.imageFlag} src={p.flag} alt="" />
             <div className={s.textDescription}>
+                <div className={s.square}></div>
                 <label>Nombre: {p.name}</label>
                 <label>Continente: {p.continente}</label>
             </div>
