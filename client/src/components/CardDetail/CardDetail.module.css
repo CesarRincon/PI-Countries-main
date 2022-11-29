@@ -22,6 +22,7 @@
 .description {
     width: 50%;
     text-align: left;
+    gap: 10px;
 }
 
 .description h2, .actividadTuristica h2{
@@ -29,7 +30,11 @@
     text-align: center;
 }
 
-.description span, .actividadTuristica span {
+.description span {
+    font-size: 35px;
+}
+
+.actividadTuristica span {
     font-size: 20px;
     
 }

@@ -1,27 +1,49 @@
-import React from 'react'
+import React, { useState } from 'react'
 import img from '../../image/planeAroundWorld.gif'
 import s from '../LandingPage/LandingPage.module.css'
 import { Link } from 'react-router-dom';
 import Slider from '../../components/Slider/Slider';
+import video from '../../image/videobg.mp4'
+import ReactPlayer from 'react-player'
+
 
 export default function LandingPage() {
-  return (
-    <div className={s.landing}>
-      <div className={s.contenedor}>
-        <section className={s.title}>
-          <h1>Countries</h1>
-          <p>Bienvenido a Countries, la pagina web que te dará un pequeño tour por los paises.</p>
-          <Slider />
-        </section>
-        <section className={s.contentImg}>
-          <img className={s.img} src={img} alt="" />
-          <div className={s.sombra}></div>
-        </section>
-      </div>
-      <div className={s.contentButton}>
-        <button className={s.buttonEntrar}><Link to={'/countries'}>Entrar</Link></button>
-      </div>
 
+  const [option, setOption] = useState(false);
+
+
+  return (
+    <div>
+      <div className={s.landing}>
+
+        <ReactPlayer url={video} playing={true} muted={true} loop={true} />
+        <div className={s.texttitle}>
+          <h1>Countries</h1>
+        </div>
+
+        {option === false &&
+          <section className={s.sect}>
+            <p>¿Estas preparado para dar un tour por los paises?</p>
+          </section>}
+        {option === false &&
+          <section className={s.opciones}>
+            <span onClick={() => setOption(true)}>Si</span>
+            <span onClick={() => setOption(false)}>No</span>
+          </section>
+        }
+
+        {option === true &&
+          <div className={s.contentButton}>
+            <button className={s.buttonEntrar}><Link to={'/countries'}>Entrar</Link></button>
+          </div>
+        }
+
+
+
+
+
+
+      </div>
     </div>
   )
 }

@@ -10,6 +10,8 @@ import Search from '../../components/search/Search';
 import { continentes } from '../../controllers/utils';
 import Loading from '../../components/Loading/Loading';
 import toggleMenu from '../../image/icon-menu.png'
+import searchfail from '../../image/noSearchFound.png'
+
 
 export default function Countries() {
 
@@ -31,7 +33,9 @@ export default function Countries() {
   }, [dispatch])
 
   useEffect(() => {
-    setIsLoading(true)
+    if (!stateAllCountries.length) {
+      setIsLoading(true)
+    }
     setCountry([...stateAllCountries])
     setIsLoading(false)
 
@@ -142,7 +146,7 @@ export default function Countries() {
           <label className={s.subtitles}>Buscar: </label>
           <Search searchCountry={searchCountry} />
         </div>
-
+      
         <div className={s.filters}>
           <div className={s.botonFiltros} onClick={changeDisplay} ><img src={toggleMenu} alt="" /></div>
           <div className={s.containerItems} style={{ display: toggle ? 'flex' : 'none' }}>
@@ -186,12 +190,14 @@ export default function Countries() {
 
       <section className={s.bodyContainer}>
         <section className={s.countriesContainer}>
-          {filteredCountries().length ?
+          {filteredCountries().length && !isLoading ?
             filteredCountries()?.map(p => {
               return <CardFlag key={p.id} id={p.id} name={p.name} flag={p.flag} continente={p.continente} />
             })
             :
-            <Loading />
+            <>
+            <img src={searchfail} alt="" />
+            </>
           }
         </section>
       </section>

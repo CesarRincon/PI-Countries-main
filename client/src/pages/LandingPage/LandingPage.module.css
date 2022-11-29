@@ -7,164 +7,96 @@
     align-items: center;
     color: rgb(0, 0, 0);
     position: relative;
-    background: url('../../image/bgPergamino.gif');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 1120px;
+    overflow: hidden;
+    
 }
 
-.contenedor {
+.landing video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.texttitle {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 1;
+    font-size: 90px;
+    color: white;
+    animation: opacidad 2s linear;
+}
+
+@keyframes opacidad {
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
+.sect, .opciones {
+    position: absolute;
+    z-index: 1;
+    color: white;
+    font-size: 35px;
+}
+
+.sect {
+    animation: opacidad 2s linear;
+}
+
+.opciones {
+    width: 200px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-   
+    justify-content: space-between;
+    bottom: 30%;
+    animation: aparicion 1s linear;
 }
 
-.title {
-    width: 45%;
-    height: 573px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+@keyframes aparicion {
+    0%{
+        opacity: 0%;
+        bottom: 20%;
+    }
+    50% {
+        opacity: 30%;
+    }
+    100%{
+        opacity: 100%;
+        bottom: 30%;
+    }
 }
 
-.title h1 {
-    font-family: cursive;
-    font-style:oblique;
-    font-size: 14vh;
-    top: 10px;
-    margin: 10px 0px;
-    margin-left: 50px;
+.opciones span {
+    cursor: pointer;
+}
+.contentButton {
+    position: absolute;
+    z-index: 1;
 }
 
 .buttonEntrar {
-    background-color: transparent;
     border: none;
+    width: 90px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 20px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    animation: aparicion 2s linear;
 }
-
-.buttonEntrar:hover {
-    color: #27262c;
-    animation: spring 300ms ease-out;
-    text-shadow: 0 -1px 0 #ffffff;
-    font-weight: bold;
-  }
-
-  @keyframes spring {
-    15% {
-      -webkit-transform-origin: center center;
-      -webkit-transform: scale(1.2, 1.1);
-    }
-    40% {
-      -webkit-transform-origin: center center;
-      -webkit-transform: scale(0.95, 0.95);
-    }
-    75% {
-      -webkit-transform-origin: center center;
-      -webkit-transform: scale(1.05, 1);
-    }
-    100% {
-      -webkit-transform-origin: center center;
-      -webkit-transform: scale(1, 1);
-    }
-  }
 
 .buttonEntrar a {
-    width: 20vw;
-    top: 800px;
-    color: rgb(0, 0, 0);
     text-decoration: none;
-    font-size: 40px;
-    font-weight: 700;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    letter-spacing: 1.5px;
+    color: black;
 }
-
-.contentButton {
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.title p {
-    width: 80%;
-    font-size: 30px;
-    font-family: cursive;
-}
-
-
-.contentImg {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 35%;
-}
-
-.img {
-    margin-top: 15%;
-    width: 70%;
-}
-
-.sombra {
-    background: rgba(0, 0, 0, 0.572);
-    border-radius: 50%;
-    width: 30%;
-    height: 15px;
-}
-
-@media (max-width: 950px) {
-    html {
-        height: 100%;
-    }
-    body{
-        height: 100vh;
-        width: 100vw;
-    }
-
-    .contenedor{
-        display: flex;
-        flex-direction: column;
-        width: 100vw;
-        height: 90vh;
-        align-items: flex-start;
-    }
-    
-    .title {
-        display: flex;
-        flex-direction: column;
-        order: 2;
-        width: 100vw;
-        height: 50vh;
-        justify-content: none;
-    }
-
-    .title p {
-        margin: 25px auto;
-        width: 90vw;
-    }
-
-    .contentImg{
-        width: 100vw;
-        height: 10%;
-        margin-bottom: 30px;
-    }
-
-    .img {
-        width: 30vw;
-        margin-top: 20px;
-    }
-
-    .title h1 {
-        font-size: 70px;
-        margin: 25px 0px;
-    }
-    .contentButton {
-        position: absolute;
-        bottom: 110px;
-    }
-}
-
-
 

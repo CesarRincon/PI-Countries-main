@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: black;
 }
 
 .texto {
@@ -23,6 +24,7 @@
     cursor: pointer;
     color: black;
     background-color: white;
+    border: 1px solid black;
     transition: 0.5s;
 }
 

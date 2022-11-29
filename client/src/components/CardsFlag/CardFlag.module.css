@@ -4,19 +4,19 @@
     height: 300px;
     padding-top: 10px;
     /* background: linear-gradient(142deg, rgba(0, 0, 0, 0.194) 0%, rgba(117,117,117,0.6264880952380952) 17%, rgba(207, 207, 207, 0.501) 23%, rgba(135, 135, 135, 0.33) 28%, rgba(124,124,124,0.68531162464986) 42%, rgba(207, 207, 207, 0.471) 47%, rgba(126, 126, 126, 0.299) 52%, rgba(132, 132, 132, 0.396) 74%, rgba(193, 193, 193, 0.503) 79%, rgba(128, 128, 128, 0.458) 84%, rgba(25, 25, 25, 0.182) 99%); */
-    background: rgb(25, 25, 25);
-    background: linear-gradient(142deg, rgba(25, 25, 25, 0.3211659663865546) 0%, rgba(10, 10, 10, 0.32) 19%, rgba(255, 255, 255, 0.08307072829131656) 22%, rgba(17, 17, 17, 0.32) 25%, rgba(13, 13, 13, 0.32) 47%, rgba(255, 255, 255, 0.08) 52%, rgba(14, 14, 14, 0.32) 56%, rgba(9, 9, 9, 0.32) 73%, rgba(255, 255, 255, 0.08) 77%, rgba(7, 7, 7, 0.32) 81%, rgba(0, 0, 0, 0.32) 100%);
+    /* background: rgb(25, 25, 25);
+    background: linear-gradient(142deg, rgba(25, 25, 25, 0.3211659663865546) 0%, rgba(10, 10, 10, 0.32) 19%, rgba(255, 255, 255, 0.08307072829131656) 22%, rgba(17, 17, 17, 0.32) 25%, rgba(13, 13, 13, 0.32) 47%, rgba(255, 255, 255, 0.08) 52%, rgba(14, 14, 14, 0.32) 56%, rgba(9, 9, 9, 0.32) 73%, rgba(255, 255, 255, 0.08) 77%, rgba(7, 7, 7, 0.32) 81%, rgba(0, 0, 0, 0.32) 100%); */
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
-
+    position: relative;
 }
-
 
 .imageFlag {
     width: 200px;
     height: 140px;
+    z-index: 1;
 }
 
 .textDescription {
@@ -24,14 +24,52 @@
     padding: 10px 0px;
     width: 200px;
     height: 80px;
-    border-radius: 2px;
+    border-radius: 8px;
     text-align: left;
     display: flex;
     flex-direction: column;
     font-size: 17px;
     font-weight: 300;
-
+    background-color: white;
+    position: absolute;
+    bottom: 5px;
+    animation: detail 1.3s ease-out;
+    color: black;
+    position: relative;
 }
+.textDescription::before {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    position: absolute;
+    z-index: 1;
+    top: -1px;
+}
+.textDescription::after {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    position: absolute;
+    z-index: 1;
+    top: -1px;
+}
+
+@keyframes detail {
+    0%{
+        top: 0;
+        opacity: 0;
+    }
+   
+    70%{
+        bottom: 30px;
+        opacity: 0;
+    }
+    100%{
+        opacity: 100%;
+        bottom: 5px;
+    }
+}
+
 
 .textDescription label {
     margin: 5px;

@@ -1,21 +1,28 @@
 .container {
-    height: 50px;
+    height: 40px;
     padding: 0px 10px;
-    background-color: rgba(255, 255, 255, 0.23);
+    background-color: rgba(254, 254, 254, 0.991);
     color: white;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
+    z-index: 1;
 }
 
+
 .title a {
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
+   
+}
+
+.title {
+    margin: 5px 0px;
+    font-size: 30px;
 }
 
 ul {
     display: flex;
-    align-items: center;
     margin: 0px 5px 0px 5px;
 }
 
@@ -24,14 +31,17 @@ ul {
     text-decoration: none;
     list-style: none;
     font-size: 20px;
+    
+}
+
+.active {
+    color: white;
+    padding: 12px;
+    background-color: black;
+    border-radius: 20px 20px 0px 0px;
 }
 
 .items a {
-    color: rgb(214, 214, 214);
     text-decoration: none;
-}
-
-.items a:hover {
-    color: rgb(255, 255, 255);
 }
 
