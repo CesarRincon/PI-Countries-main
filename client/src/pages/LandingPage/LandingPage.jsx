@@ -37,12 +37,6 @@ export default function LandingPage() {
             <button className={s.buttonEntrar}><Link to={'/countries'}>Entrar</Link></button>
           </div>
         }
-
-
-
-
-
-
       </div>
     </div>
   )

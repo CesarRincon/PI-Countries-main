@@ -100,3 +100,9 @@
     color: black;
 }
 
+
+@media (max-width: 400px)  {
+    .texttitle h1 {
+        font-size: 70px;
+    }
+}
